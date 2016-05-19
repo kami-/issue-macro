@@ -21,10 +21,20 @@
         <context>issue-macro</context>
     </web-resource>
 
-    <!--<component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties" />-->
-
     <xhtml-macro name="issue-macro" class="com.kami.confluence.issuemacro.macro.IssueMacro" key="issue-macro">
-        <parameters/>
+        <parameters>
+            <parameter name="summary" type="string" required="true">
+                <option key="showKeyInPlaceholder" value="false" />
+                <option key="showValueInPlaceholder" value="true" />
+            </parameter>
+        </parameters>
     </xhtml-macro>
-    
+
+    <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties" />
+    <component-import key="applicationLinkService" interface="com.atlassian.applinks.api.ApplicationLinkService" />
+
+    <component key="jiraService" class="com.kami.confluence.issuemacro.jira.DefaultJiraService" public="false"  >
+        <interface>com.kami.confluence.issuemacro.jira.JiraService</interface>
+    </component>
+
 </atlassian-plugin>

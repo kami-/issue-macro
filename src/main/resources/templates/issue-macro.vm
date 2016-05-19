@@ -1,0 +1,1 @@
+<span class="im-issue" data-key="$issue.key"><a class="" href="$issue.url">$issue.key | $issue.summary</a></span>
